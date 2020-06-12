@@ -1,4 +1,5 @@
 {
+  "homepage": "http://GabrielHouse.github.io/align",
   "name": "align-react",
   "version": "0.1.0",
   "private": true,
@@ -19,8 +20,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run align-react:build",
-    "deploy": "gh-pages -d align-react-static"
+    "predeploy": "npm run build", 
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
