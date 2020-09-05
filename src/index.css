@@ -2,6 +2,11 @@ label{
   float:left;
   margin-right:10px;
 }
+table{
+  border-spacing:0px;
+}
+
+
 .seq {
   width:195px;
   float:left;
@@ -39,8 +44,6 @@ label{
 
 #alignment {
   min-width:250px;
-  text-transform: uppercase;
-  font-family: 'Courier New', Courier, monospace;
   font-size: larger;
 }
 #alignment td{
@@ -52,3 +55,8 @@ label{
   border-left:2px solid black;
   padding-left:10px;
 }
+
+.MathJax{
+  text-align: left;
+}
+

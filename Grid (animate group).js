@@ -1,4 +1,4 @@
-import React, { useState, useEffect }  from 'react'
+import React, { useState, useRef }  from 'react'
 import Square from './Square';
 import { useTrail, animated, useChain } from 'react-spring'
 import { Animate, AnimateGroup } from 'react-simple-animate'
@@ -32,11 +32,6 @@ function An() {
       </AnimateGroup>}
   </div>)
 }
-
-/*function showToolTip(D_ij){
-  print()
-
-}*/
 
 function highlightPath(path, D) {
   clearPath(D);
@@ -87,13 +82,12 @@ export default function Grid(props) {
   // useChain(refs);
   const beginAnimate = true;
     
-  useEffect(() => {
-    highlightPath(props.D[props.D.length-1][props.D[0].length-1].path, props.D);
-  }, [props]);
-
+  
   return (
     <div onClick={() => set( state => !state)} >
-      <table>
+      <An />
+      <table onMouseLeave={() => highlightPath(props.D[props.D.length - 1][props.D[0].length - 1]
+    .path,props.D)}>
         <tbody>
           <tr>
             <td>
@@ -108,8 +102,11 @@ export default function Grid(props) {
               </td>
             ))}
           </tr> 
+
+
+          <AnimateGroup play={true} key={props.alt}>
           {props.D.map((row, i) => (
-            <tr key={i}>
+            <tr key={i * props.alt}>
               <td>
                 <Square   
                   value={props.seq1.charAt(i - 1)}
@@ -117,21 +114,34 @@ export default function Grid(props) {
                 />
               </td>
               {row.map((e, j) => (
-                <td key={props.D[i][j].id}>
+                <td key={props.D[i][j].id + ',' +  props.alt}>
+                <Animate 
+                  
+                  key={props.D[i][j].value * props.alt} 
+                  sequenceIndex={i * props.D[0].length + j} 
+                  duration={0.1}
+                  start={{color:'rgb(0,0,0,0)'}}
+                  end={{color:'rgb(0,0,0,1)'}}
+                 // style={{color:'rgb(0,0,0,1)'}}
+                  
+                  >
                 
                   <div>
                     <Square
                       value={props.D[i][j].score}
                       className="score_square"
                       id={props.D[i][j].id}
-                     // handleMouseOver={() => ;}
-                      handleClick={() => highlightPath(props.D[i][j].path, props.D)}
+                      handleMouseOver={() => highlightPath(props.D[i][j].path,props.D)}
                     />
                     </div>
+                 
+                
+                </Animate>
                 </td>
               ))}
             </tr>
           ))}
+          </AnimateGroup>
         </tbody>
       </table>
     </div>

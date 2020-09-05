@@ -81,29 +81,22 @@ class App extends React.Component {
       seq1: seq1,
       seq2: seq2,
       matchScore: 1,
-      mismatchScore: 3,
+      mismatchScore: -1,
       gapScore: -1,
-      D: align(seq1, seq2, 1, 3, -1),
     };
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange(event) {
     if (event.target.id === "seq1") {
-      this.setState({ seq1: event.target.value });
+      this.setState({ seq1: event.target.value.toString().toUpperCase() });
     } else if (event.target.id === "seq2") {
-      this.setState({ seq2: event.target.value });
+      this.setState({ seq2: event.target.value.toString().toUpperCase() });
     } else if (event.target.id === "match") {
       this.setState({ matchScore: event.target.value });
     } else if (event.target.id === "mismatch") {
       this.setState({ mismatchScore: event.target.value });
     } else if (event.target.id === "gap" && !isNaN(event.target.value)) {
       this.setState({ gapScore: event.target.value });
-    }
-    if (
-      !isNaN(this.state.matchScore) &&
-      !isNaN(this.state.mismatchScore) &&
-      !isNaN(this.state.gapScore)
-    ) {
     }
   }
   render() {
@@ -125,11 +118,31 @@ class App extends React.Component {
     );
     return (
       <div>
+        <p style={{ maxWidth: "1210px" }}>
+
+          I was introduced to the Needleman-Wunsch algorithm during a fourth year CS course in the context of computing the optimal alignment of two DNA sequences. What is so fascinating about the algorithm is its simplicity, yet its ability to reduce to other popular dynamic programming problems such as Longest Common Subsequence and Edit Distance by changing the score scheme. The Needleman-Wunsch algorithm is still widely used in areas like bioinformatics, where its quadratic time and linear space complexities make it effective for aligning extremely long strings.<br /><br />
+
+          The problem is solved by the recurrence relation:
+          \(\text{'{D[i, j] = max}'}
+          \begin{'{cases}'}
+          \text{'{D[i-1, j-1] + f(S[i], T[j])}'}\\
+          \text{'{D[i-1, j] + f(S[i], -)}'}\\
+          \text{'{D[i, j-1] + f(-, T[j])}'}
+          \end{'{cases}'}
+          \)
+          where D[i, j] holds the optimal alignment score for S[:i] and T[:j] and f is the scoring function.
+
+        </p>
+
+
+
+
+
         <table>
           <tbody>
             <tr>
               <td>
-                <label>Sequence 1</label>
+                <label>Sequence S</label>
               </td>
               <td colSpan="4">
                 <input
@@ -143,32 +156,28 @@ class App extends React.Component {
               </td>
               <td rowSpan="10" id="result">
                 <table id="alignment">
-                  <tbody>
-                    <tr>
-                      <td>
-                        {D[this.state.seq1.length][this.state.seq2.length].a}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        {D[this.state.seq1.length][this.state.seq2.length].b}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        {
-                          D[this.state.seq1.length][this.state.seq2.length]
-                            .score
-                        }
-                      </td>
-                    </tr>
-                  </tbody>
+                  <tr>
+                    <table >
+                      <tbody>
+                        <tr>
+                          {D[this.state.seq1.length][this.state.seq2.length].a.split('').map((c, i) => <td>{c}</td>)}
+                        </tr>
+                        <tr>
+                          {D[this.state.seq1.length][this.state.seq2.length].b.split('').map((c, i) => <td>{c}</td>)}
+                        </tr>
+
+                      </tbody>
+                    </table>
+                  </tr>
+                  <tr>
+                    {'Score: ' + D[this.state.seq1.length][this.state.seq2.length].score}
+                  </tr>
                 </table>
               </td>
             </tr>
             <tr>
               <td>
-                <label>Sequence 2</label>
+                <label>Sequence T</label>
               </td>
               <td colSpan="4">
                 <input
