@@ -8,7 +8,6 @@ function align(a, b, matchScore, mismatchScore, gapScore) {
   // ai                          alignment for a0a1..ai and b0b1..bj
   // ...
 
-  // init D
   let D = new Array(a.length + 1);
   for (let i = 0; i < a.length + 1; i++) {
     D[i] = new Array(b.length + 1);
@@ -68,15 +67,14 @@ function align(a, b, matchScore, mismatchScore, gapScore) {
     }
     str += "\n";
   }
-  // alert(str);
   return D;
 }
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    let seq1 = "GACR",
-      seq2 = "SDFSR";
+    let seq1 = "AATCTAG",
+      seq2 = "ATCGGTCG";
     this.state = {
       seq1: seq1,
       seq2: seq2,
@@ -133,11 +131,6 @@ class App extends React.Component {
           where D[i, j] holds the optimal alignment score for S[:i] and T[:j] and f is the scoring function.
 
         </p>
-
-
-
-
-
         <table>
           <tbody>
             <tr>
@@ -165,7 +158,6 @@ class App extends React.Component {
                         <tr>
                           {D[this.state.seq1.length][this.state.seq2.length].b.split('').map((c, i) => <td>{c}</td>)}
                         </tr>
-
                       </tbody>
                     </table>
                   </tr>
