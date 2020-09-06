@@ -1,9 +1,17 @@
 body{
   background-color: rgb(237, 243, 252);
-  font-family: Montserrat;
+  font-family: Oxygen;
   line-height: 1.6;
+}
 
-  
+.main{
+  max-width: 1210px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mono{
+  font-family: Oxygen Mono;
 }
 
 label{
@@ -20,7 +28,10 @@ table{
   float:left;
   text-transform: uppercase;
   background-color: rgb(237, 243, 252);
+  font-size: medium;
+  font-family: Oxygen
 }
+
 
 .score_square {
   display: table-cell;
@@ -52,7 +63,9 @@ table{
 
 .params{
   width:70px;
+  font-size: medium;
   background-color: rgb(237, 243, 252);
+  font-family: Oxygen
 }
 
 .param_label{

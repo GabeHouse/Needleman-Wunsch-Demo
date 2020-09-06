@@ -1,6 +1,5 @@
 import React from "react";
 import Grid from './components/Grid';
-import { getAutomaticTypeDirectiveNames } from "typescript";
 
 function align(a, b, matchScore, mismatchScore, gapScore) {
   //    b0 b1 bj ...
@@ -107,28 +106,23 @@ class App extends React.Component {
       gapScore
     );
     return (
-      <div id="main" >
-        <p style={{ maxWidth: "1210px", marginLeft: "auto", marginRight: "auto" }}>
+      <div id="main" style={{ maxWidth: "1210px", marginLeft: "auto", marginRight: "auto" }}>
+        <p>
 
           I was introduced to the Needleman-Wunsch algorithm during a fourth year CS course in the context of computing the optimal alignment of two DNA sequences. What is so fascinating about the algorithm is its simplicity, yet its ability to reduce to other popular dynamic programming problems such as Longest Common Subsequence and Edit Distance by changing the score scheme. The Needleman-Wunsch algorithm is still widely used in areas like bioinformatics, where its quadratic time and linear space complexities make it effective for aligning extremely long strings.<br /><br />
 
           The problem is solved by the recurrence relation:
-          \(\text{'{D[i, j] = max}'}
+          \(\texttt{'{ D[i, j] = max}'}
           \begin{'{cases}'}
-          \text{'{D[i-1, j-1] + f(S[i], T[j])}'}\\
-          \text{'{D[i-1, j] + f(S[i], -)}'}\\
-          \text{'{D[i, j-1] + f(-, T[j])}'}
+          \texttt{'{D[i-1, j-1] + f(S[i], T[j])}'}\\
+          \texttt{'{D[i-1, j] + f(S[i], -)}'}\\
+          \texttt{'{D[i, j-1] + f(-, T[j])}'}
           \end{'{cases}'}
           \)
-          , where D[i, j] holds the optimal alignment score for S[:i] and T[:j] and f is the scoring function.
+          , where <span className="mono">D[i, j]</span> holds the optimal alignment score for <span className="mono">S[:i]</span> and <span className="mono">T[:j]</span> and f is the scoring function.
 
         </p>
-        <table id="param_result" style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          minWidth: "min-content",
-        }} >
+        <table id="param_result" >
           <tr>
 
             <td>
@@ -241,12 +235,7 @@ class App extends React.Component {
 
           </tr>
         </table>
-        <div style={{
-          minWidth: "min-content",
-          display: "flex",
-          alignItems: 'safe center',
-          justifyContent: 'safe center',
-        }}>
+        <div>
           <Grid D={D} seq1={this.state.seq1} seq2={this.state.seq2} />
         </div>
       </div>
