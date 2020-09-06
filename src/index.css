@@ -1,3 +1,7 @@
+body{
+  background-color: rgb(237, 243, 252);
+}
+
 label{
   float:left;
   margin-right:10px;
@@ -6,22 +10,25 @@ table{
   border-spacing:0px;
 }
 
-
 .seq {
   width:195px;
+  min-width:195px;
   float:left;
   text-transform: uppercase;
+  background-color: rgb(237, 243, 252);
 }
 
 .score_square {
   display: table-cell;
   vertical-align:middle;
   text-align: center;
-  width: 50px;
   height: 50px;
+  width: 50px;
+  min-width:50px;
+
   cursor:pointer;
   font-weight:bold;
-  background-color: white;
+  background-color: rgb(237, 243, 252);
   border:1px solid black;
 }
 
@@ -30,16 +37,22 @@ table{
   vertical-align:middle;
   text-align: center;
   width: 50px;
+  min-width: 50px;
   height: 50px;
   cursor:pointer;
   font-weight:bold;
-  background-color: white;
+  background-color: rgb(237, 243, 252);
   text-transform: uppercase;
   
 }
 
 .params{
   width:70px;
+  background-color: rgb(237, 243, 252);
+}
+
+.param_label{
+  white-space: nowrap;
 }
 
 #alignment {
@@ -52,9 +65,11 @@ table{
   font-weight:bold;
 }
 #result{
-  border-left:2px solid black;
   padding-left:10px;
+  border-left: 2px solid black;
+
 }
+
 
 .MathJax{
   text-align: left;

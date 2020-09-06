@@ -107,7 +107,7 @@ class App extends React.Component {
     );
     return (
       <div>
-        <p style={{ maxWidth: "1210px" }}>
+        <p style={{ maxWidth: "1210px"}}>
 
           I was introduced to the Needleman-Wunsch algorithm during a fourth year CS course in the context of computing the optimal alignment of two DNA sequences. What is so fascinating about the algorithm is its simplicity, yet its ability to reduce to other popular dynamic programming problems such as Longest Common Subsequence and Edit Distance by changing the score scheme. The Needleman-Wunsch algorithm is still widely used in areas like bioinformatics, where its quadratic time and linear space complexities make it effective for aligning extremely long strings.<br /><br />
 
@@ -122,98 +122,118 @@ class App extends React.Component {
           , where D[i, j] holds the optimal alignment score for S[:i] and T[:j] and f is the scoring function.
 
         </p>
-        <table>
-          <tbody>
-            <tr>
-              <td>
-                <label>Sequence S</label>
-              </td>
-              <td colSpan="4">
-                <input
-                  type="text"
-                  id="seq1"
-                  className="seq"
-                  value={this.state.seq1}
-                  maxLength="20"
-                  onChange={this.handleChange}
-                ></input>
-              </td>
-              <td rowSpan="10" id="result">
-                <table id="alignment">
-                  <tr>
-                    <table >
-                      <tbody>
-                        <tr>
-                          {D[this.state.seq1.length][this.state.seq2.length].a.split('').map((c, i) => <td>{c}</td>)}
-                        </tr>
-                        <tr>
-                          {D[this.state.seq1.length][this.state.seq2.length].b.split('').map((c, i) => <td>{c}</td>)}
-                        </tr>
-                      </tbody>
-                    </table>
-                  </tr>
-                  <tr>
-                    {'Score: ' + D[this.state.seq1.length][this.state.seq2.length].score}
-                  </tr>
-                </table>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>Sequence T</label>
-              </td>
-              <td colSpan="4">
-                <input
-                  type="text"
-                  id="seq2"
-                  className="seq"
-                  value={this.state.seq2}
-                  maxLength="20"
-                  onChange={this.handleChange}
-                ></input>
-              </td>
-            </tr>
-            <tr colSpan="4">
-              <th>
-                <label>Match Score</label>
-              </th>
-              <th>
-                <label>Mismatch Score</label>
-              </th>
-              <th>
-                <label>Gap Score</label>
-              </th>
-            </tr>
-            <tr>
-              <td>
-                <input
-                  className="params"
-                  id="match"
-                  type="number"
-                  value={this.state.matchScore}
-                  onChange={this.handleChange}
-                />
-              </td>
-              <td>
-                <input
-                  className="params"
-                  id="mismatch"
-                  type="number"
-                  value={this.state.mismatchScore}
-                  onChange={this.handleChange}
-                />
-              </td>
-              <td>
-                <input
-                  className="params"
-                  id="gap"
-                  type="number"
-                  value={this.state.gapScore}
-                  onChange={this.handleChange}
-                />
-              </td>
-            </tr>
-          </tbody>
+        <table id="param_result" >
+          <tr>
+
+            <td>
+              <tr>
+                <td>
+                  <label className="param_label"> Sequence S</label>
+                </td>
+                <td colSpan="4">
+                  <input
+
+                    type="text"
+                    id="seq1"
+                    className="seq"
+                    value={this.state.seq1}
+                    maxLength="20"
+                    onChange={this.handleChange}
+                  ></input>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label className="param_label">Sequence T</label>
+                </td>
+                <td colSpan="4">
+                  <input
+                    type="text"
+                    id="seq2"
+                    className="seq"
+                    value={this.state.seq2}
+                    maxLength="20"
+                    onChange={this.handleChange}
+                  ></input>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table>
+                    <tr>
+                      <label className="param_label">Match Score</label>
+                    </tr>
+                    <tr>
+                      <input
+                        className="params"
+                        id="match"
+                        type="number"
+                        value={this.state.matchScore}
+                        onChange={this.handleChange}
+                      />
+                    </tr>
+                  </table>
+                </td>
+                <td>
+                  <table>
+                    <tr>
+                      <label className="param_label">Mismatch Score</label>
+                    </tr>
+                    <tr>
+                      <input
+                        className="params"
+                        id="mismatch"
+                        type="number"
+                        value={this.state.mismatchScore}
+                        onChange={this.handleChange}
+                      />
+                    </tr>
+
+                  </table>
+                </td>
+                <td>
+                  <table>
+                    <tr>
+                      <label className="param_label">Gap Score</label>
+                    </tr>
+                    <tr>
+                      <input
+                        className="params"
+                        id="gap"
+                        type="number"
+                        value={this.state.gapScore}
+                        onChange={this.handleChange}
+                      />
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+
+
+            </td>
+
+            <td rowSpan="10" id="result" >
+              <table id="alignment"  >
+                <tr>
+                  <table >
+                    <tbody>
+                      <tr>
+                        {D[this.state.seq1.length][this.state.seq2.length].a.split('').map((c, i) => <td>{c}</td>)}
+                      </tr>
+                      <tr>
+                        {D[this.state.seq1.length][this.state.seq2.length].b.split('').map((c, i) => <td>{c}</td>)}
+                      </tr>
+                    </tbody>
+                  </table>
+                </tr>
+                <tr>
+                  {'Score: ' + D[this.state.seq1.length][this.state.seq2.length].score}
+                </tr>
+              </table>
+            </td>
+
+          </tr>
         </table>
         <Grid D={D} seq1={this.state.seq1} seq2={this.state.seq2} />
       </div>
