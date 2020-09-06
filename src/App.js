@@ -31,8 +31,6 @@ function align(a, b, matchScore, mismatchScore, gapScore) {
     D[0][j].path.push(D[0][j].id.valueOf());
   }
 
-  let str = "";
-
   for (let i = 0; i < a.length; i++) {
     for (let j = 0; j < b.length; j++) {
       let f = b.charAt(j) === a.charAt(i) ? matchScore : mismatchScore;
@@ -59,13 +57,6 @@ function align(a, b, matchScore, mismatchScore, gapScore) {
       }
       D[i + 1][j + 1].path.push(D[i + 1][j + 1].id.valueOf());
     }
-  }
-  str += matchScore + ", " + mismatchScore + ", " + gapScore + "\n";
-  for (let i = 0; i < D.length; i++) {
-    for (let j = 0; j < D[0].length; j++) {
-      str += D[i][j].score + " ";
-    }
-    str += "\n";
   }
   return D;
 }
@@ -128,7 +119,7 @@ class App extends React.Component {
           \text{'{D[i, j-1] + f(-, T[j])}'}
           \end{'{cases}'}
           \)
-          where D[i, j] holds the optimal alignment score for S[:i] and T[:j] and f is the scoring function.
+          , where D[i, j] holds the optimal alignment score for S[:i] and T[:j] and f is the scoring function.
 
         </p>
         <table>
