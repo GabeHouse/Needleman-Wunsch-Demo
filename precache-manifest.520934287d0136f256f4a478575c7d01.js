@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4ea6a735be4920ebe9f064b85d873d85",
+    "revision": "f713d17fe7e0178e93d44617d74b9183",
     "url": "/Needleman-Wunsch-Demo/index.html"
   },
   {
-    "revision": "91f53436a10a711901c3",
-    "url": "/Needleman-Wunsch-Demo/static/css/main.148b7377.chunk.css"
+    "revision": "aab46f9612418b5e2919",
+    "url": "/Needleman-Wunsch-Demo/static/css/main.85758d8d.chunk.css"
   },
   {
     "revision": "fb2e78a9b48426d0acaf",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Needleman-Wunsch-Demo/static/js/2.944b7167.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "91f53436a10a711901c3",
-    "url": "/Needleman-Wunsch-Demo/static/js/main.f57bd862.chunk.js"
+    "revision": "aab46f9612418b5e2919",
+    "url": "/Needleman-Wunsch-Demo/static/js/main.356b682b.chunk.js"
   },
   {
     "revision": "7d7932231df38701935a",
