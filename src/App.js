@@ -106,10 +106,10 @@ class App extends React.Component {
       gapScore
     );
     return (
-      <div id="main" style={{ maxWidth: "1210px", marginLeft: "auto", marginRight: "auto" }}>
+      <div id="main">
         <p>
 
-          I was introduced to the Needleman-Wunsch algorithm during a fourth year CS course in the context of computing the optimal alignment of two DNA sequences. What is so fascinating about the algorithm is its simplicity, yet its ability to reduce to other popular dynamic programming problems such as Longest Common Subsequence and Edit Distance by changing the score scheme. The Needleman-Wunsch algorithm is still widely used in areas like bioinformatics, where its quadratic time and linear space complexities make it effective for aligning extremely long strings.<br /><br />
+          I was introduced to the <a href="https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm">Needleman-Wunsch algorithm </a>during a fourth year CS course in the context of computing the optimal alignment of two DNA sequences. What is so fascinating about the algorithm is its simplicity, yet its ability to reduce to other popular dynamic programming problems such as <button onClick={() => {this.setState({matchScore: 1, mismatchScore: 0, gapScore: 0})}}>Longest Common Subsequence</button>  and <button onClick={() => {this.setState({matchScore: 0, mismatchScore: -1, gapScore: -1})}}>Edit Distance</button> by changing the score scheme. The Needleman-Wunsch algorithm is still widely used in areas like bioinformatics, where its quadratic time and linear space complexities make it effective for aligning extremely long strings.<br /><br />
 
           The problem is solved by the recurrence relation:
           \(\texttt{'{ D[i, j] = max}'}
@@ -119,10 +119,10 @@ class App extends React.Component {
           \texttt{'{D[i, j-1] + f(-, T[j])}'}
           \end{'{cases}'}
           \)
-          , where <span className="mono">D[i, j]</span> holds the optimal alignment score for <span className="mono">S[:i]</span> and <span className="mono">T[:j]</span> and f is the scoring function.
+          , where <span className="mono">D[i, j]</span> holds the optimal alignment score for <span className="mono">S[:i]</span> and <span className="mono">T[:j]</span>, '-' denotes a gap, and f is the scoring function.
 
         </p>
-        <table id="param_result" >
+        <table id="param_result" style={{paddingTop:"20px"}}>
           <tr>
 
             <td>
@@ -208,9 +208,6 @@ class App extends React.Component {
                   </table>
                 </td>
               </tr>
-
-
-
             </td>
 
             <td rowSpan="10" id="result" >
