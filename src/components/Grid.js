@@ -12,7 +12,7 @@ function clearPath(D) {
   for (let i = 0; i < D.length; i++) {
     for (let j = 0; j < D[0].length; j++) {
       document.getElementById(D[i][j].id).style.backgroundColor =
-      "rgb(213, 235, 207)";
+      "rgb(221, 255, 204)";
     }
   }
 }
