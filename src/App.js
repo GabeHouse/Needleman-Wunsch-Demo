@@ -109,20 +109,36 @@ class App extends React.Component {
       <div id="main">
         <p>
 
-          I was introduced to the <a href="https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm">Needleman-Wunsch algorithm </a>during a fourth year CS course in the context of computing the similarity and optimal alignment of two DNA sequences. What is so fascinating about the algorithm is its simplicity, yet its ability to reduce to other popular dynamic programming problems such as <button onClick={() => {this.setState({matchScore: 1, mismatchScore: 0, gapScore: 0})}}>Longest Common Subsequence</button>  and <button onClick={() => {this.setState({matchScore: 0, mismatchScore: -1, gapScore: -1})}}>Edit Distance</button> by changing the score scheme. The Needleman-Wunsch algorithm is still widely used in areas like bioinformatics, where its quadratic time and linear space complexities make it effective for aligning extremely long strings.<br /><br />
-
-          The problem is solved by the recurrence relation:
-          \(\texttt{'{ D[i, j] = max}'}
+          I was introduced to the <a href="https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm">Needleman-Wunsch algorithm </a>during a fourth year CS course in the context of computing the similarity and optimal alignment of two DNA sequences. What is so fascinating about the algorithm is its simplicity, yet its ability to reduce to other popular dynamic programming problems such as <button onClick={() => {this.setState({matchScore: 1, mismatchScore: 0, gapScore: 0})}}>Longest Common Subsequence</button>  and <button onClick={() => {this.setState({matchScore: 0, mismatchScore: -1, gapScore: -1})}}>Edit Distance</button> by changing the score scheme. The Needleman-Wunsch algorithm is still widely used in areas like bioinformatics, where its quadratic time and linear space complexities make it effective for aligning extremely long strings.
+          </p>
+          <p>
+          The problem is solved by filling D through the recurrence relation,
+          <br></br>
+          $$\texttt{'{ D[i, j] = max}'}
           \begin{'{cases}'}
           \texttt{'{D[i-1, j-1] + f(S[i], T[j])}'}\\
           \texttt{'{D[i-1, j] + f(S[i], -)}'}\\
           \texttt{'{D[i, j-1] + f(-, T[j])}'}
           \end{'{cases}'}
-          \)
-          , where <span className="mono">D[i, j]</span> holds the optimal alignment score for <span className="mono">S[:i]</span> and <span className="mono">T[:j]</span>, '-' denotes a gap, and f is the scoring function.
+          \texttt{'{= max}'}
+          \begin{'{cases}'}
+          \texttt{'{D[i-1, j-1] + Match_Score if S[i] == T[j] else Mismatch_Score}'}\\
+          \texttt{'{D[i-1, j] + Gap_Score}'}\\
+          \texttt{'{D[i, j-1] + Gap_Score}'}
+          \end{'{cases}'}
+          $$
+          to compute the optimal score, then backtracking to find the corresponding alignment.
+          </p>
+        <p>
+          The demo below shows:
+          <ul>
+            <li>The optimal alignment and score</li>
+            <li><span className="mono">D</span>, where <span className="mono">D[i, j]</span> holds the optimal score for sequences <span className="mono">S[:i]</span> and <span className="mono">T[:j]</span></li>
+            <li>The path obtained from backtracking coloured in red</li>
+          </ul>
 
         </p>
-        <table id="param_result" style={{paddingTop:"20px"}}>
+        <table id="param_result">
           <tr>
 
             <td>

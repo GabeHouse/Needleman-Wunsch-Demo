@@ -72,6 +72,10 @@ table{
   white-space: nowrap;
 }
 
+#param_result{
+  padding-top: 10px;
+}
+
 #alignment {
   min-width:250px;
   font-size: larger;
