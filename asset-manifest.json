@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Needleman-Wunsch-Demo/static/css/main.a73fd47d.chunk.css",
-    "main.js": "/Needleman-Wunsch-Demo/static/js/main.a603a288.chunk.js",
-    "main.js.map": "/Needleman-Wunsch-Demo/static/js/main.a603a288.chunk.js.map",
+    "main.js": "/Needleman-Wunsch-Demo/static/js/main.89e641fc.chunk.js",
+    "main.js.map": "/Needleman-Wunsch-Demo/static/js/main.89e641fc.chunk.js.map",
     "runtime-main.js": "/Needleman-Wunsch-Demo/static/js/runtime-main.9c4e9be8.js",
     "runtime-main.js.map": "/Needleman-Wunsch-Demo/static/js/runtime-main.9c4e9be8.js.map",
     "static/js/2.d9ba44ee.chunk.js": "/Needleman-Wunsch-Demo/static/js/2.d9ba44ee.chunk.js",
     "static/js/2.d9ba44ee.chunk.js.map": "/Needleman-Wunsch-Demo/static/js/2.d9ba44ee.chunk.js.map",
     "index.html": "/Needleman-Wunsch-Demo/index.html",
-    "precache-manifest.bb03e8930f42d0eee1c95aae6cd6a9ce.js": "/Needleman-Wunsch-Demo/precache-manifest.bb03e8930f42d0eee1c95aae6cd6a9ce.js",
+    "precache-manifest.f56ca5b3cc5ed21288837b31f4d64e20.js": "/Needleman-Wunsch-Demo/precache-manifest.f56ca5b3cc5ed21288837b31f4d64e20.js",
     "service-worker.js": "/Needleman-Wunsch-Demo/service-worker.js",
     "static/css/main.a73fd47d.chunk.css.map": "/Needleman-Wunsch-Demo/static/css/main.a73fd47d.chunk.css.map",
     "static/js/2.d9ba44ee.chunk.js.LICENSE.txt": "/Needleman-Wunsch-Demo/static/js/2.d9ba44ee.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.9c4e9be8.js",
     "static/js/2.d9ba44ee.chunk.js",
     "static/css/main.a73fd47d.chunk.css",
-    "static/js/main.a603a288.chunk.js"
+    "static/js/main.89e641fc.chunk.js"
   ]
 }
