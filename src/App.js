@@ -65,7 +65,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     let seq1 = "AATCTAG",
-      seq2 = "ATCGGTCG";
+      seq2 = "ATCGGTAG";
     this.state = {
       seq1: seq1,
       seq2: seq2,
@@ -109,35 +109,36 @@ class App extends React.Component {
       <div id="main">
         <p>
 
-          I was introduced to the <a href="https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm">Needleman-Wunsch algorithm </a>during a fourth year CS course in the context of computing the similarity and optimal alignment of two DNA sequences. What is so fascinating about the algorithm is its simplicity, yet its ability to reduce to other popular dynamic programming problems such as <button onClick={() => {this.setState({matchScore: 1, mismatchScore: 0, gapScore: 0})}}>Longest Common Subsequence</button>  and <button onClick={() => {this.setState({matchScore: 0, mismatchScore: -1, gapScore: -1})}}>Edit Distance</button> by changing the score scheme. The Needleman-Wunsch algorithm is still widely used in areas like bioinformatics, where its quadratic time and linear space complexities make it effective for aligning extremely long strings.
+          I was introduced to the <a href="https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm">Needleman-Wunsch algorithm </a> during a fourth year CS course in the context of comparing two species' genomes (multi-billion character DNA strings) to see if they share a common ancestor. What is so fascinating about the algorithm is its simplicity, yet its ability to reduce to other popular dynamic programming problems such as <button onClick={() => {this.setState({matchScore: 1, mismatchScore: 0, gapScore: 0})}}>Longest Common Subsequence</button>  and <button onClick={() => {this.setState({matchScore: 0, mismatchScore: -1, gapScore: -1})}}>Edit Distance</button> by changing the score scheme. The Needleman-Wunsch algorithm is still widely used in areas like bioinformatics, where its quadratic time and linear space complexities make it useful for aligning long strings.
           </p>
           <p>
-          The problem is solved by filling D through the recurrence relation,
+          The problem is solved by filling table DP using the recurrence relation,
           <br></br>
-          $$\texttt{'{ D[i, j] = max}'}
+          $$\small{'\\texttt{ DP[i, j] = max}'} 
           \begin{'{cases}'}
-          \texttt{'{D[i-1, j-1] + f(S[i], T[j])}'}\\
-          \texttt{'{D[i-1, j] + f(S[i], -)}'}\\
-          \texttt{'{D[i, j-1] + f(-, T[j])}'}
+          \small{'\\texttt{DP[i-1, j-1] + score(S[i], T[j])}'}\\
+          \small{'\\texttt{DP[i-1, j] + score(S[i], -)}'}\\
+          \small{'\\texttt{DP[i, j-1] + score(-, T[j])}'}
           \end{'{cases}'}
           \texttt{'{= max}'}
           \begin{'{cases}'}
-          \texttt{'{D[i-1, j-1] + Match_Score if S[i] == T[j] else Mismatch_Score}'}\\
-          \texttt{'{D[i-1, j] + Gap_Score}'}\\
-          \texttt{'{D[i, j-1] + Gap_Score}'}
+          \small{'\\texttt{DP[i-1, j-1] + \(match_score}\\texttt{ if }\\texttt{ S[i] == T[j] }\\texttt{ else  }\\texttt{ mismatch_score)}'}\\
+          \small{'\\texttt{DP[i-1, j] + gap_score}'}\\
+          \small{'\\texttt{DP[i, j-1] + gap_score}'}
           \end{'{cases}'}
           $$
-          to compute the optimal score, then backtracking to find the corresponding alignment.
+          to compute the optimal score, then backtracking (shown below in red) to find the corresponding alignment.
           </p>
-        <p>
-          The demo below shows:
+          
+        {/* <p>
+          The demo below shows for two sequences S and T and a score scheme:
           <ul>
             <li>The optimal alignment and score</li>
-            <li><span className="mono">D</span>, where <span className="mono">D[i, j]</span> holds the optimal score for sequences <span className="mono">S[:i]</span> and <span className="mono">T[:j]</span></li>
-            <li>The path obtained from backtracking coloured in red</li>
+            <li>The table <span className="mono">DP</span>, where <span className="mono">DP[i, j]</span> holds the optimal score for sequences <span className="mono">S[:i]</span> and <span className="mono">T[:j]</span></li>
+            <li>The path followed by backtracking highlighted in red</li>
           </ul>
 
-        </p>
+        </p> */}
         <table id="param_result">
           <tr>
 

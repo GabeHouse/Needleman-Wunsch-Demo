@@ -23,9 +23,9 @@ export default function Grid(props) {
   }, [props]);
 
   return (
-    <div >
-      <table>
-        <tbody>
+    <div>
+      <table >
+        <tbody >
           <tr>
             <td>
               <Square className="letter_square" />

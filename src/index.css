@@ -1,7 +1,7 @@
 body{
   background-color: rgb(221, 255, 204);
   font-family: Oxygen;
-  line-height: 1.7;
+  line-height: 1.9;
 }
 
 #main{
@@ -40,11 +40,13 @@ table{
   height: 50px;
   width: 50px;
   min-width:50px;
-
+  
   cursor:pointer;
   font-weight:bold;
   background-color: rgb(221, 255, 204);
   border:1px solid black;
+  padding: 0px;
+  margin: 0px;
 }
 
 .letter_square {
@@ -58,6 +60,8 @@ table{
   font-weight:bold;
   background-color: rgb(221, 255, 204);
   text-transform: uppercase;
+  padding: 0px;
+  margin: 0px;
   
 }
 
@@ -90,7 +94,6 @@ table{
   border-left: 2px solid black;
 
 }
-
 
 .MathJax{
   text-align: left;
