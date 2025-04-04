@@ -109,7 +109,7 @@ class App extends React.Component {
       <div id="main">
         <p>
 
-          The <a href="https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm">Needleman-Wunsch algorithm </a> is an algorithm that determines the optimal alignment and match score of two strings. It is able to reduce to popular dynamic programming problems such as <button onClick={() => {this.setState({matchScore: 1, mismatchScore: 0, gapScore: 0})}}>Longest Common Subsequence</button>  and <button onClick={() => {this.setState({matchScore: 0, mismatchScore: -1, gapScore: -1})}}>Edit Distance</button> by altering the score scheme. The Needleman-Wunsch algorithm has quadratic time and linear space complexities making it useful for aligning extremely long strigns like genome sequences to see if two are related.
+          The <a href="https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm">Needleman-Wunsch algorithm </a> determines the optimal alignment and match score of two strings. It reduces to popular dynamic programming problems such as <button onClick={() => {this.setState({matchScore: 1, mismatchScore: 0, gapScore: 0})}}>Longest Common Subsequence</button>  and <button onClick={() => {this.setState({matchScore: 0, mismatchScore: -1, gapScore: -1})}}>Edit Distance</button> by altering the score scheme. The Needleman-Wunsch algorithm has quadratic time and linear space complexities making it useful for aligning extremely long strings like genome sequences to see if they share a common ancestor.
           </p>
           <p>
           The problem is solved by filling table DP using the recurrence relation,
