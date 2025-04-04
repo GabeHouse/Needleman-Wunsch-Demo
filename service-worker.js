@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Needleman-Wunsch-Demo/precache-manifest.8be2e773fb53c1ed46a0efc9350efcb7.js"
+  "/Needleman-Wunsch-Demo/precache-manifest.171fd49ce488ba33f80f510c5b39d6a7.js"
 );
 
 self.addEventListener('message', (event) => {
